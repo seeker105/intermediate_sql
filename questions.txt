@@ -1,0 +1,80 @@
+What does SERIAL do?
+I'm guessing it sets up a primary_key as a sequence of integers.
+
+
+What is the total revenue?
+intermediate_sql=# SELECT sum(revenue) FROM items
+intermediate_sql-# ;
+ sum
+------
+ 3800
+(1 row)
+
+
+
+
+What is the average revenue?
+intermediate_sql=# SELECT avg(revenue) FROM items;
+         avg
+----------------------
+ 950.0000000000000000
+(1 row)
+
+
+What is the minimum revenue?
+intermediate_sql=# SELECT min(revenue) FROM items;
+ min
+-----
+ 500
+(1 row)
+
+What is the max revenue?intermediate_sql=# SELECT max(revenue) FROM items;
+ max
+------
+ 1200
+(1 row)
+
+What is the count for items with a name?
+intermediate_sql=# SELECT count(name) FROM items;
+ count
+-------
+     4
+(1 row)
+
+
+Return all main courses. Hint: What ActiveRecord method would you use to get this?
+intermediate_sql=# SELECT NAME, REVENUE FROM items WHERE COURSE = 'main';
+      name      | revenue
+----------------+---------
+ veggie lasagna |    1000
+ striped bass   |     500
+(2 rows)
+
+
+Return only the names of the main courses.
+intermediate_sql=# SELECT NAME FROM items WHERE COURSE = 'main';
+      name
+----------------
+ veggie lasagna
+ striped bass
+(2 rows)
+
+Return the min and max value for the main courses.
+intermediate_sql=# SELECT max(revenue), min(revenue) FROM items WHERE COURSE='main';
+ max  | min
+------+-----
+ 1000 | 500
+(1 row)
+
+What's the total revenue for all main courses?
+intermediate_sql=# SELECT sum(revenue) FROM items WHERE course='main';
+ sum
+------
+ 1500
+(1 row)
+
+
+Can you get it to display only the name for the item and the name for the season?
+
+
+Having two columns with the same name is confusing. Can you customize each heading using AS?
